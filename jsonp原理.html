@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			window.abc = "abc";
+			console.log("本地的js代码中：window.abc的值是：" +window.abc);
+			function callBack(obj){
+				console.log(obj);
+			}
+			callBack({name:"本地的"});
+		</script>
+		<button id="getBtn">获取远端的内容</button>
+		<script src="jquery-1.10.2.min.js"></script>
+		<script>
+			$("#getBtn").click(function(){
+				$("body")
+				.append("<script src='http://127.0.0.1:8020/work/js/js1.js'><\/script>")
+			});
+		</script>
+		
+		
+		<!--curl "http://localhost:63342/^%^E5^%^AE^%^9E^%^E4^%^BE^%^8B/localjavascript.js?_=1474879791179" -H "Accept: */*" -H "Connection: keep-alive" -H "Accept-Encoding: gzip, deflate, sdch, br" -H "Referer: http://127.0.0.1:8020/26^%^E5^%^8F^%^B7^%^E8^%^AF^%^BE^%^E7^%^A8^%^8B/^%^E4^%^BB^%^A3^%^E7^%^A0^%^81^%^E7^%^A4^%^BA^%^E4^%^BE^%^8B/jsonp^%^E5^%^8E^%^9F^%^E7^%^90^%^86.html" -H "Accept-Language: zh-CN,zh;q=0.8" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2859.0 Safari/537.36" --compressed-->
+	</body>
+</html>
+
+
