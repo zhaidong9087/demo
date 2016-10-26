@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <script src="angular-1.5.8/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myControl">
+			<button id="btn_html">html事件</button> <br />
+			<button id="btn_jquery">jQuery事件</button> <br />
+			<button id="btn_AngularJS" ng-click="btnClick()">AngularJS事件</button>
+		</div>
+		
+		<script>
+			//html事件
+			var btn_html=document.getElementById("btn_html");
+			btn_html.onclick=function(){
+				console.log("html中的点击事件触发")
+			}
+			//JQuery事件
+			$("#btn_jquery").click(function(){
+				console.log("jQuery事件的点击事件触发")
+			})
+			
+			
+			
+			//AngularJS事件
+			angular.module("myApp",[])
+			  .controller("myControl",function($scope){
+			  	// 这里不是事件，这里仅仅是在$scope中扩展了一个名称为btnClick的方法
+			  	//只有在元素上使用了ng-click 指令  并指向该方法，才叫做AngularJS事件
+			  	
+			  	$scope.btnClick=function(){
+			  		console.log("AngularJS事件的点击事件触发")
+			  	}
+			  	
+			  })
+			
+			
+			  /* angularJS的click和jQuery的click是否冲突*/
+			    $("#btn_AngularJS").click(function(){
+			        console.log("jQuery事件的点击事件先于AngularJS出现")
+			    })
+
+   //为div订阅click事件
+    // 冒泡到上层元素   AngularJS的事件也是可以冒泡的
+		    $("div").click(function(){
+		        console.log("div被点击了")
+		    })
+					
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

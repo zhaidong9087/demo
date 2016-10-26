@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			var money = 10;			//总钱数
+			var beer = 0;			//的数量
+			var i = 1;				//第几次买
+			while(money>=2){
+				var currentBeer = Math.floor(money / 2);		//当前次，买啤酒的数量
+				var currentMoney = money - currentBeer * 2;		//买完啤酒还剩多少钱
+				console.log("the " + i + "is buy "+ currentBeer);
+				beer = beer + currentBeer;			//增加到总啤酒数量
+				money = (currentBeer * 0.5) + currentBeer + currentMoney;	//总共还剩多少钱
+				//money = 1.5;
+				i++;			//判断次数的
+			}
+			console.log("can buy " + beer);
+			console.log(money);
+		
+
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
